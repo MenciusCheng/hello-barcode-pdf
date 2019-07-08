@@ -24,8 +24,8 @@ object HtmlToPdfDemo {
     sheep.setFish(fish)
 
     val content = "|010556120034700\r\n11111111\r\n2019070302921\r\n2172100"
-    val qrcode = ImageHelper.encodeImg2Base64(BarcodeHelper.matrixToByteArray(BarcodeHelper.createQRCode(content, 200, 200)), "png")
-    val barcode = ImageHelper.encodeImg2Base64(BarcodeHelper.matrixToByteArray(BarcodeHelper.createBarCode(content, 300, 100)), "png")
+    val qrcode = ImageHelper.encodeImg2Base64(BarcodeHelper.createQRImage(content, 200, 200), "png")
+    val barcode = ImageHelper.encodeImg2Base64(BarcodeHelper.createBarImage(content, 300, 100), "png")
 
     sheep.setBarcode(barcode)
     sheep.setQrcode(qrcode)

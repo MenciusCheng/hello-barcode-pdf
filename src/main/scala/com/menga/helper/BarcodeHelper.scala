@@ -58,6 +58,14 @@ object BarcodeHelper {
     MatrixToImageWriter.writeToPath(matrix, "png", new File(path).toPath)
   }
 
+  def createQRImage(content: String, width: Int, height: Int): Array[Byte] = {
+    matrixToByteArray(createQRCode(content, width, height))
+  }
+
+  def createBarImage(content: String, width: Int, height: Int): Array[Byte] = {
+    matrixToByteArray(createBarCode(content, width, height))
+  }
+
   def main(args: Array[String]): Unit = {
     val qrContent = "大家好，我是威威猫，很高兴认识大家"
     createMatrixFile(createQRCode(qrContent, 200, 200), "output/qrcode.png")
