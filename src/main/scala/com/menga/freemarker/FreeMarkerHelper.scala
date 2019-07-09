@@ -2,7 +2,7 @@ package com.menga.freemarker
 
 import java.io.{ByteArrayOutputStream, OutputStreamWriter}
 
-import com.menga.freemarker.domain.{Cat, Sheep}
+import com.menga.freemarker.domain.{Billpayment, Cat, Sheep}
 import freemarker.template.{Configuration, TemplateExceptionHandler}
 
 /**
@@ -21,6 +21,18 @@ object FreeMarkerHelper {
   private lazy val catTemplate = configuration.getTemplate("cat.ftl")
 
   private lazy val sheepTemplate = configuration.getTemplate("sheep.ftl")
+
+  private lazy val billpaymentTemplate = configuration.getTemplate("billpayment.ftl")
+
+  /**
+    * 创建付款单 PDF 的 HTML
+    */
+  def createBillpaymentHtml(data: Billpayment): Array[Byte] = {
+    val out = new ByteArrayOutputStream
+    billpaymentTemplate.process(data, new OutputStreamWriter(out, "UTF-8"))
+    out.close()
+    out.toByteArray
+  }
 
   def createCatHtml(data: Cat): Array[Byte] = {
     val out = new ByteArrayOutputStream

@@ -1,10 +1,10 @@
 package com.menga.pdf
 
-import java.io.{ByteArrayInputStream, FileOutputStream}
+import java.io.{ByteArrayInputStream, FileInputStream, FileOutputStream}
 
 import com.itextpdf.html2pdf.HtmlConverter
 import com.menga.freemarker.FreeMarkerHelper
-import com.menga.freemarker.domain.{Cat, Sheep}
+import com.menga.freemarker.domain.{Billpayment, Cat, Sheep}
 import com.menga.helper.{BarcodeHelper, ImageHelper}
 
 /**
@@ -13,7 +13,42 @@ import com.menga.helper.{BarcodeHelper, ImageHelper}
 object HtmlToPdfDemo {
 
   def main(args: Array[String]): Unit = {
-    testSheep()
+    testBillpayment3()
+  }
+
+  private def testBillpayment3(): Unit = {
+    val stream = new FileOutputStream("output/billpayment3.pdf")
+    val html = new FileInputStream(ClassLoader.getSystemResource("templates/billpayment3.html").getFile)
+    HtmlConverter.convertToPdf(html, stream)
+  }
+
+  private def testBillpayment(): Unit = {
+    val stream = new FileOutputStream("output/billpayment2.pdf")
+//    val stream = new FileOutputStream("output/billpayment.pdf")
+
+    // 订单总金额的整数部分
+    val amountIntegerPart = 3000
+    // 订单总金额的分数部分
+    val amountFractionalPart = 20
+    // 订单总金额的泰文
+    val amountInWords = "TWO HUNDRED"
+
+    val content = "|010556120034700\n\r11111111\n\r2019070302921\n\r2172100"
+    val qrcode = ImageHelper.encodeImg2Base64(BarcodeHelper.createQRImage(content, 200, 200), "png")
+    val barcode = ImageHelper.encodeImg2Base64(BarcodeHelper.createBarImage(content, 300, 100), "png")
+
+    val billpayment = new Billpayment
+    billpayment.setOrderNo("P2019070802825")
+    billpayment.setCompanyName("0007")
+    billpayment.setCompanyCode("TENGXUN SUPPLIER")
+    billpayment.setAmountIntegerPart(amountIntegerPart)
+    billpayment.setAmountFractionalPart(amountFractionalPart)
+    billpayment.setAmountInWords(amountInWords)
+    billpayment.setBarcode(barcode)
+    billpayment.setQrcode(qrcode)
+
+    val html = FreeMarkerHelper.createBillpaymentHtml(billpayment)
+    HtmlConverter.convertToPdf(new ByteArrayInputStream(html), stream)
   }
 
   private def testSheep(): Unit = {
