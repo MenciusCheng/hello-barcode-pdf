@@ -23,8 +23,7 @@ object HtmlToPdfDemo {
   }
 
   private def testBillpayment(): Unit = {
-    val stream = new FileOutputStream("output/billpayment2.pdf")
-//    val stream = new FileOutputStream("output/billpayment.pdf")
+    val stream = new FileOutputStream("output/billpayment.pdf")
 
     // 订单总金额的整数部分
     val amountIntegerPart = 3000
