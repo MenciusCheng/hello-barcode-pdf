@@ -44,6 +44,11 @@ public class Billpayment {
      */
     private String qrcode;
 
+    /**
+     * 条形码数字
+     */
+    private String barcodeNumber;
+
     public Billpayment() {
     }
 
@@ -109,5 +114,13 @@ public class Billpayment {
 
     public void setQrcode(String qrcode) {
         this.qrcode = qrcode;
+    }
+
+    public String getBarcodeNumber() {
+        return barcodeNumber;
+    }
+
+    public void setBarcodeNumber(String barcodeNumber) {
+        this.barcodeNumber = barcodeNumber;
     }
 }

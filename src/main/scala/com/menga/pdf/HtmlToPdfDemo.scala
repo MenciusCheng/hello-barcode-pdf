@@ -13,7 +13,7 @@ import com.menga.helper.{BarcodeHelper, ImageHelper}
 object HtmlToPdfDemo {
 
   def main(args: Array[String]): Unit = {
-    testBillpayment3()
+    testBillpayment()
   }
 
   private def testBillpayment3(): Unit = {
@@ -35,6 +35,7 @@ object HtmlToPdfDemo {
     val content = "|010556120034700\n\r11111111\n\r2019070302921\n\r2172100"
     val qrcode = ImageHelper.encodeImg2Base64(BarcodeHelper.createQRImage(content, 200, 200), "png")
     val barcode = ImageHelper.encodeImg2Base64(BarcodeHelper.createBarImage(content, 300, 100), "png")
+    val barcodeNumber = content.replaceAll("\n\r", " ")
 
     val billpayment = new Billpayment
     billpayment.setOrderNo("P2019070802825")
@@ -45,6 +46,7 @@ object HtmlToPdfDemo {
     billpayment.setAmountInWords(amountInWords)
     billpayment.setBarcode(barcode)
     billpayment.setQrcode(qrcode)
+    billpayment.setBarcodeNumber(barcodeNumber)
 
     val html = FreeMarkerHelper.createBillpaymentHtml(billpayment)
     HtmlConverter.convertToPdf(new ByteArrayInputStream(html), stream)
