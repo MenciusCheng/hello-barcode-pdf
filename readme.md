@@ -4,20 +4,24 @@ HTML + 二维码 + 条形码 转 PDF 文件
 
 HTML + Barcode To PDF
 
+本项目主要使用 Scala 语言
+
 ### 包含示例
 
-- 使用 FreeMarker 生成 HTML
-- 使用 zxing 生成二维码、条形码
-- 把 HTML 转 PDF 文件
+- [使用 FreeMarker 生成 HTML](https://github.com/MenciusCheng/hello-barcode-pdf/blob/master/src/main/scala/com/menga/freemarker/FreeMarkerHelper.scala)
+- [使用 zxing 生成二维码、条形码](https://github.com/MenciusCheng/hello-barcode-pdf/blob/master/src/main/scala/com/menga/helper/BarcodeHelper.scala)
+- [把 HTML 转 PDF 文件](https://github.com/MenciusCheng/hello-barcode-pdf/blob/master/src/main/scala/com/menga/pdf/HtmlToPdfDemo.scala)
 
 ### 技术参考链接
 
-#### [FreeMarker]
+#### FreeMarker
 
 - [官网](https://freemarker.apache.org/)
 - [中文文档](http://freemarker.foofun.cn/)
 
-#### [zxing](https://github.com/zxing/zxing)
+#### zxing
+
+- [github 地址](https://github.com/zxing/zxing)
 
 #### iText 7
 
