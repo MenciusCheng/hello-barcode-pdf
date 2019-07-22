@@ -22,7 +22,7 @@ object FreeMarkerHelper {
 
   private lazy val sheepTemplate = configuration.getTemplate("sheep.ftl")
 
-  private lazy val billpaymentTemplate = configuration.getTemplate("hetong2.ftl")
+  private lazy val billpaymentTemplate = configuration.getTemplate("billpayment2.ftl")
 
   /**
     * 创建付款单 PDF 的 HTML

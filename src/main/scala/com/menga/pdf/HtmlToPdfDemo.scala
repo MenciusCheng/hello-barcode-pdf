@@ -2,7 +2,9 @@ package com.menga.pdf
 
 import java.io.{ByteArrayInputStream, FileInputStream, FileOutputStream}
 
-import com.itextpdf.html2pdf.HtmlConverter
+import com.itextpdf.html2pdf.resolver.font.DefaultFontProvider
+import com.itextpdf.html2pdf.{ConverterProperties, HtmlConverter}
+import com.itextpdf.io.font.FontProgramFactory
 import com.menga.freemarker.FreeMarkerHelper
 import com.menga.freemarker.domain.{Billpayment, Cat, Sheep}
 import com.menga.helper.{BarcodeHelper, ImageHelper}
@@ -14,6 +16,26 @@ object HtmlToPdfDemo {
 
   def main(args: Array[String]): Unit = {
     testBillpayment()
+  }
+
+  /**
+    * 添加字体
+    */
+  private def getProperties: ConverterProperties = {
+    val fonts = List(
+      "src/main/resources/fonts/cour.ttf",
+      "src/main/resources/fonts/courbd.ttf",
+      "src/main/resources/fonts/courbi.ttf",
+      "src/main/resources/fonts/couri.ttf"
+    )
+
+    val properties = new ConverterProperties
+    val fontProvider = new DefaultFontProvider
+    for (font <- fonts) {
+      val fontProgram = FontProgramFactory.createFont(font)
+      fontProvider.addFont(fontProgram)
+    }
+    properties.setFontProvider(fontProvider)
   }
 
   private def testBillpayment3(): Unit = {
@@ -49,7 +71,8 @@ object HtmlToPdfDemo {
     billpayment.setBarcodeNumber(barcodeNumber)
 
     val html = FreeMarkerHelper.createBillpaymentHtml(billpayment)
-    HtmlConverter.convertToPdf(new ByteArrayInputStream(html), stream)
+
+    HtmlConverter.convertToPdf(new ByteArrayInputStream(html), stream, getProperties)
   }
 
   private def testSheep(): Unit = {
