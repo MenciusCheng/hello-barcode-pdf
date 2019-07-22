@@ -1,6 +1,6 @@
 package com.menga.pdf
 
-import java.io.{ByteArrayInputStream, FileInputStream, FileOutputStream}
+import java.io._
 
 import com.itextpdf.html2pdf.resolver.font.DefaultFontProvider
 import com.itextpdf.html2pdf.{ConverterProperties, HtmlConverter}
@@ -8,32 +8,43 @@ import com.itextpdf.io.font.FontProgramFactory
 import com.menga.freemarker.FreeMarkerHelper
 import com.menga.freemarker.domain.{Billpayment, Cat, Sheep}
 import com.menga.helper.{BarcodeHelper, ImageHelper}
+import com.menga.util.ByteArrayHelper
+import sun.misc.IOUtils
 
 /**
   * Created by Marvel on 2019/7/2.
   */
 object HtmlToPdfDemo {
 
-  def main(args: Array[String]): Unit = {
-    testBillpayment()
+  // 获取字体
+  lazy val fontProvider: DefaultFontProvider = {
+    val fonts = List(
+      "templates/fonts/cour.ttf",
+      "templates/fonts/courbd.ttf"
+    )
+
+    val fontProvider = new DefaultFontProvider
+    for (font <- fonts) {
+      // 读取方式一
+      val fontIn: InputStream = getClass.getClassLoader.getResourceAsStream(font)
+      val fontProgram = FontProgramFactory.createFont(ByteArrayHelper.inputStream2ByteArray(fontIn))
+      // 读取方式二
+//      val fontProgram = FontProgramFactory.createFont(getClass.getClassLoader.getResource(font).getFile)
+      fontProvider.addFont(fontProgram)
+    }
+    fontProvider
   }
 
   /**
-    * 添加字体
+    * 属性配置
     */
   private def getProperties: ConverterProperties = {
-    val fonts = List(
-      "fonts/cour.ttf",
-      "fonts/courbd.ttf"
-    )
-
     val properties = new ConverterProperties
-    val fontProvider = new DefaultFontProvider
-    for (font <- fonts) {
-      val fontProgram = FontProgramFactory.createFont(ClassLoader.getSystemResource(font).getFile)
-      fontProvider.addFont(fontProgram)
-    }
     properties.setFontProvider(fontProvider)
+  }
+
+  def main(args: Array[String]): Unit = {
+    testBillpayment()
   }
 
   private def testBillpayment3(): Unit = {

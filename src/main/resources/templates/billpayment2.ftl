@@ -98,7 +98,7 @@
             border: 1px solid #0f0f0f;
         }
         .box-table .box-table-top table .wid-160{
-            width: 140px;
+            width: 130px;
         }
         .box-table .box-table-top table .wid-60{
             width: 60px;
@@ -140,7 +140,7 @@
         <table class="box-top">
             <tr>
                 <td><div class="box-top-left">ใบนำฝากชำระเงินค่าสินค้าหรือบริการ (Bill Payment Pay-In Slip)</div></td>
-                <td style="width: 120px"></td>
+                <td style="width: 90px"></td>
                 <td><div class="box-top-right">
                     <div>สำหรับลูกค้า</div>
                     <div class="text-yellow">โปรดเรียกเก็บค่าธรรมเนียมจากผู้ชำระเงิน*</div>
@@ -172,8 +172,8 @@ h7a8/NaZFklDKVXQzaVeTwN1OhktKg8JScOMhlo6IOs3nQUhqtSQRRUBWVQRkEUVAVlUEZBFFYGE
 //iTCSfsIbWMcMjlLzjAP8DI0oknIBmDAAAAAElFTkSuQmCC'/></td>
                             <td><div class="box-logo-left-content">
                                 <div>บริษัท ไอพอลิเมอร์ จำกัด</div>
-                                <div>ที่อยู่ 555/2 อาคารบี ชั้น 9 ถ.วิภาวดีรังสิต แขวงจตุจักร</div>
-                                <div>เขตจตุจักร กรุงเทพมหานคร 10900</div>
+                                    <span>ที่อยู่ 555/2 อาคารบี ชั้น 9 ถ.วิภาวดีรังสิต แขวงจตุจักร</span>
+                                <span>เขตจตุจักร กรุงเทพมหานคร 10900</span>
                             </div></td>
                         </tr>
                     </table>
@@ -188,8 +188,8 @@ h7a8/NaZFklDKVXQzaVeTwN1OhktKg8JScOMhlo6IOs3nQUhqtSQRRUBWVQRkEUVAVlUEZBFFYGE
                     </table>
                     <div class="info">
                         <div class="margin-bottom-5"><div style="margin-bottom: -12px">ชื่อ/Name</div><div class="enter-content" style="margin-left: 60px;width: 260px">${companyName}</div></div>
-                        <div class="margin-bottom-5"><div style="margin-bottom: -12px">รหัสลูกค้า/Customer No (Ref.1)</div><div class="enter-content" style="margin-left: 175px;width: 142px">${companyCode}</div></div>
-                        <div class=""><div style="margin-bottom: -12px">หมายเลขอ้างอิง/Reference No (Ref.2)</div><div  class="enter-content" style="margin-left: 205px;width: 110px">${orderNo}</div></div>
+                        <div class="margin-bottom-5"><div style="margin-bottom: -12px">รหัสลูกค้า/Customer No(Ref.1)</div><div class="enter-content" style="margin-left: 180px;width: 142px">${companyCode}</div></div>
+                        <div class=""><div style="margin-bottom: -12px">หมายเลขอ้างอิง/Reference No(Ref.2)</div><div  class="enter-content" style="margin-left: 210px;width: 110px">${orderNo}</div></div>
                     </div>
                 </td>
             </tr>
@@ -226,8 +226,8 @@ ARw3CERWg3zaAAAAAElFTkSuQmCC' class="check-img"/></td>
                     <tr>
                         <th>รับเฉพาะเงินสดเท่านั้น</th>
                         <th class="td-gray">จำนวนเงิน (บาท)/Amount (Baht)  - - ></th>
-                        <th class="wid-160">${amountIntegerPart}</th>
-                        <th class="wid-60">${amountFractionalPart}</th>
+                        <th class="wid-160" style="text-align: right">${amountIntegerPart}</th>
+                        <th class="wid-60" style="text-align: right">${amountFractionalPart}</th>
                     </tr>
                     <tr>
                         <td class="td-gray">จำนวนเงินเป็นตัวอักษร/Amount in Words</td>
@@ -238,8 +238,8 @@ ARw3CERWg3zaAAAAAElFTkSuQmCC' class="check-img"/></td>
             <table class="box-table-content" style="border: 0px">
                 <tr>
                     <td class="box-table-content-info">
-                        <div style="padding-bottom: 10px"><div>ชื่อผู้นำฝาก/Deposit by</div><div class="enter-content" style="width:53px;margin-left: 106px"></div></div>
-                        <div style="padding-bottom: 10px"><div>โทรศัพท์/Telephone </div><div class="enter-content" style="width:59px;margin-left: 100px"></div></div>
+                        <div style="padding-bottom: 10px"><div>ชื่อผู้นำฝาก/Deposit by</div><div class="enter-content" style="width:58px;margin-left: 126px"></div></div>
+                        <div style="padding-bottom: 10px"><div>โทรศัพท์/Telephone </div><div class="enter-content" style="width:66px;margin-left: 115px"></div></div>
                     </td>
                     <td class="box-table-table">
                         <table cellpadding="8">
@@ -256,8 +256,8 @@ ARw3CERWg3zaAAAAAElFTkSuQmCC' class="check-img"/></td>
                     <td class="box-table-information" >
                         <div style="margin-left: 10px">
                             <div>หมายเหตุ</div>
-                            <div>- ท่านสามารถตรวจสอบรายชื่อธนาคารและผู้ให้บริการที่เข้าร่วมได้จาก</div><span>เว็บไซต์ของธนาคารแห่งประเทศไทย</span>
-                            <div>- ค่าธรรมเนียมเป็นไปตามเงื่อนไขและข้อกำหนดของแต่ละธนาคาร/ผู้ให้</div><span>บริการ</span>
+                            <div>-ท่านสามารถตรวจสอบรายชื่อธนาคารและผู้ให้บริการที่เข้าร่วมได้จาก</div><span>เว็บไซต์ของธนาคารแห่งประเทศไทย</span>
+                            <div>-ค่าธรรมเนียมเป็นไปตามเงื่อนไขและข้อกำหนดของแต่ละธนาคาร/ผู้ให้</div><span>บริการ</span>
                         </div>
                     </td>
                 </tr>
@@ -268,7 +268,7 @@ ARw3CERWg3zaAAAAAElFTkSuQmCC' class="check-img"/></td>
         <table class="box-top">
             <tr>
                 <td><div class="box-top-left">ใบนำฝากชำระเงินค่าสินค้าหรือบริการ (Bill Payment Pay-In Slip)</div></td>
-                <td style="width: 120px"></td>
+                <td style="width: 90px"></td>
                 <td><div class="box-top-right">
                     <div>สำหรับธนาคาร</div>
                     <div class="text-yellow">โปรดเรียกเก็บค่าธรรมเนียมจากผู้ชำระเงิน*</div>
@@ -301,8 +301,8 @@ h7a8/NaZFklDKVXQzaVeTwN1OhktKg8JScOMhlo6IOs3nQUhqtSQRRUBWVQRkEUVAVlUEZBFFYGE
 //iTCSfsIbWMcMjlLzjAP8DI0oknIBmDAAAAAElFTkSuQmCC'/></td>
                                 <td><div class="box-logo-left-content">
                                     <div>บริษัท ไอพอลิเมอร์ จำกัด</div>
-                                    <div>ที่อยู่ 555/2 อาคารบี ชั้น 9 ถ.วิภาวดีรังสิต แขวงจตุจักร</div>
-                                    <div>เขตจตุจักร กรุงเทพมหานคร 10900</div></div></td>
+                                    <span>ที่อยู่ 555/2 อาคารบี ชั้น 9 ถ.วิภาวดีรังสิต แขวงจตุจักร</span>
+                                    <span>เขตจตุจักร กรุงเทพมหานคร 10900</span></div></td>
                             </tr>
                         </table>
                         <div>เลขประจำตัวผู้เสียภาษี 0105561200347.   โทรศัพท์ 02 765-7000</div>
@@ -318,8 +318,8 @@ h7a8/NaZFklDKVXQzaVeTwN1OhktKg8JScOMhlo6IOs3nQUhqtSQRRUBWVQRkEUVAVlUEZBFFYGE
                         </table>
                         <div class="info">
                             <div class=""><div style="margin-bottom: -12px">ชื่อ/Name</div><div class="enter-content" style="margin-left: 60px;width: 260px">${companyName}</div></div>
-                            <div class=""><div style="margin-bottom: -12px">รหัสลูกค้า/Customer No (Ref.1)</div><div class="enter-content wid-110" style="margin-left: 175px;width: 142px"><span>${companyCode}</span></div></div>
-                            <div class=""><div style="margin-bottom: -12px">หมายเลขอ้างอิง/Reference No (Ref.2)</div><div  class="enter-content" style="margin-left: 205px;width: 110px">${orderNo}</div></div>
+                            <div class=""><div style="margin-bottom: -12px">รหัสลูกค้า/Customer No(Ref.1)</div><div class="enter-content wid-110" style="margin-left: 180px;width: 142px"><span>${companyCode}</span></div></div>
+                            <div class=""><div style="margin-bottom: -12px">หมายเลขอ้างอิง/Reference No(Ref.2)</div><div  class="enter-content" style="margin-left: 210px;width: 110px">${orderNo}</div></div>
                         </div>
                     </div>
                 </td>
@@ -356,8 +356,8 @@ ARw3CERWg3zaAAAAAElFTkSuQmCC' class="check-img"/></td>
                     <tr>
                         <th>รับเฉพาะเงินสดเท่านั้น</th>
                         <th class="td-gray">จำนวนเงิน (บาท)/Amount (Baht)  - - ></th>
-                        <th class="wid-160">${amountIntegerPart}</th>
-                        <th class="wid-60">${amountFractionalPart}</th>
+                        <th class="wid-160" style="text-align: right">${amountIntegerPart}</th>
+                        <th class="wid-60" style="text-align: right">${amountFractionalPart}</th>
                     </tr>
                     <tr>
                         <td class="td-gray">จำนวนเงินเป็นตัวอักษร/Amount in Words</td>
@@ -393,7 +393,7 @@ ARw3CERWg3zaAAAAAElFTkSuQmCC' class="check-img"/></td>
         </div>
         <div class="box-cod">
             <img src='${barcode}'/>
-            <div style="margin-left: 30px">${barcodeNumber}</div>
+            <div >${barcodeNumber}</div>
         </div>
     </div>
 </div>
