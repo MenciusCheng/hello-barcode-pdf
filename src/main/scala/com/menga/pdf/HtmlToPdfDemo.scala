@@ -23,16 +23,14 @@ object HtmlToPdfDemo {
     */
   private def getProperties: ConverterProperties = {
     val fonts = List(
-      "src/main/resources/fonts/cour.ttf",
-      "src/main/resources/fonts/courbd.ttf",
-      "src/main/resources/fonts/courbi.ttf",
-      "src/main/resources/fonts/couri.ttf"
+      "fonts/cour.ttf",
+      "fonts/courbd.ttf"
     )
 
     val properties = new ConverterProperties
     val fontProvider = new DefaultFontProvider
     for (font <- fonts) {
-      val fontProgram = FontProgramFactory.createFont(font)
+      val fontProgram = FontProgramFactory.createFont(ClassLoader.getSystemResource(font).getFile)
       fontProvider.addFont(fontProgram)
     }
     properties.setFontProvider(fontProvider)
