@@ -59,7 +59,7 @@ object HtmlToPdfDemo {
     // 订单总金额的整数部分
     val amountIntegerPart = 3000
     // 订单总金额的分数部分
-    val amountFractionalPart = 20
+    val amountFractionalPart = 2
     // 订单总金额的泰文
     val amountInWords = "TWO HUNDRED"
 

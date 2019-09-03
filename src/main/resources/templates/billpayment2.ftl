@@ -227,7 +227,7 @@ ARw3CERWg3zaAAAAAElFTkSuQmCC' class="check-img"/></td>
                         <th >รับเฉพาะเงินสดเท่านั้น</th>
                         <th class="td-gray">จำนวนเงิน (บาท)/Amount (Baht)</th>
                         <th  style="text-align: right;width: 150px">${amountIntegerPart}</th>
-                        <th class="wid-60" style="text-align: right">${amountFractionalPart}</th>
+                        <th class="wid-60" style="text-align: right">${amountFractionalPart?string["00"]}</th>
                     </tr>
                     <tr>
                         <td >
@@ -345,7 +345,7 @@ ARw3CERWg3zaAAAAAElFTkSuQmCC' class="check-img"/></td>
                         <th>รับเฉพาะเงินสดเท่านั้น</th>
                         <th class="td-gray">จำนวนเงิน (บาท)/Amount (Baht)</th>
                         <th style="text-align: right;width: 120px">${amountIntegerPart}</th>
-                        <th class="wid-60" style="text-align: right">${amountFractionalPart}</th>
+                        <th class="wid-60" style="text-align: right">${amountFractionalPart?string["00"]}</th>
                         <th class="td-gray wid-200">สำหรับเจ้าหน้าที่ธนาคาร</th>
                     </tr>
                     <tr>
